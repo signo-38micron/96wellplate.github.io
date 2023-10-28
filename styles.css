@@ -1,0 +1,62 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 7px;
+    margin: 10;
+    max-width: 80%;
+    padding: 10px;
+    border: 2px solid #333;
+    overflow: hidden;
+    
+}
+.grid-item {
+    background-color: #3498db;
+    padding: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif  ;
+    border-radius: 50%;
+    width: 10px; /* Set a specific width for the elements */
+    height: 1px; /* Set a specific height for the elements */
+    border: 1px solid #333;
+    text-align: center; /* Center text horizontally */
+    display: flex;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    cursor: pointer; 
+    transition: background-color 0.3s;
+    position: relative;
+}
+.grid-item:hover {
+    background-color: rgb(255, 255, 255); /* Change background color on hover */
+     
+}
+
+.grid-item:hover::before {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.grid-item span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.grid-item:hover span {
+    visibility: hidden; /* Hide the original text when hovering */
+}
+
+.special-item {
+    /* Define the styles for the specific grid items */
+    background-color: red;
+}
+@media (max-width: 768px) {
+    /* Adjust grid layout for smaller screens */
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    }
+}
