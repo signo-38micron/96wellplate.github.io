@@ -1,2 +1,2 @@
 # 96wellplate.github.io
-for my realt-time 
+for my real-time 
