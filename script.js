@@ -13,7 +13,35 @@ document.addEventListener("DOMContentLoaded", function() {
         ["NTC", "NTC", "NTC", "NTC", "NTC", "NTC", "NTC","NTC", "NTC", "NTC", "NTC", "NTC"],
         ["EMPTY", "EMPTY", "EMPTY", "EMPTY", "EMPTY", "EMPTY", "EMPTY", "EMPTY", "EMPTY", "EMPTY", "EMPTY", "EMPTY"],
     ];
+    // Add an event listener to the "Search" button
+    document.getElementById("search-button").addEventListener("click", function() {
+        // Get the search keyword from the input field and make it lowercase
+        const searchKeyword = document.getElementById("search-input").value.toLowerCase();
 
+        // Loop through grid items and change color based on the search keyword
+        gridItems.forEach((item) => {
+            const keyword = item.getAttribute("data-keyword").toLowerCase(); // Get the keyword from data-keyword attribute
+
+            // Check if the keyword matches the search keyword (case-insensitive)
+            if (keyword.includes(searchKeyword)) {
+                item.style.backgroundColor = 'Grey'; // Change color to white for matching items
+            } else {
+                item.style.backgroundColor = '#3498db'; // Reset color for non-matching items
+            }
+        });
+    });
+
+    // Add an event listener to the "Clear" button
+    document.getElementById("clear-button").addEventListener("click", function() {
+        // Reset the colors of all grid items to the default color
+        gridItems.forEach(item => {
+            item.style.backgroundColor = '#3498db';
+        });
+
+        // Clear the search input field
+        document.getElementById("search-input").value = '';
+    });
+    
     gridItems.forEach((item, index) => {
         let isGreen = false;
 
